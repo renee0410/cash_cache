@@ -14,10 +14,10 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
-    "strict": true
+    "strict": true,
+    "moduleResolution": "node",
   },
   /* Bundler mode */
-  "moduleResolution": "node",
   "allowImportingTsExtensions": true,
   "resolveJsonModule": true,
   "isolatedModules": true,

@@ -1,7 +1,10 @@
 import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import routes from './app/routes';
 
 function App() {
-  return <div className='flex text-red-600'>Hello</div>;
+  const router = createBrowserRouter(routes);
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;
