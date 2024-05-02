@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "login": "Login"
+  },
+
+  "$": {
+    "email": "Email",
+    "password": "Password"
+  }
+}

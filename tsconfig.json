@@ -16,6 +16,7 @@
     "module": "ESNext",
     "strict": true,
     "moduleResolution": "node",
+    "resolveJsonModule": true,  // Allow importing JSON files
   },
   /* Bundler mode */
   "allowImportingTsExtensions": true,

@@ -8,6 +8,10 @@ export default {
       },
       zIndex: {
         60: '60',
+      },
+      colors: {
+        primary: "#518099",
+        secondary: "#E3F5FF",
       }
     },
   },
