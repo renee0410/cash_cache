@@ -1,6 +1,13 @@
 {
   "nav": {
-    "login": "Login"
+    "login": "Login",
+    "signOut": "Sign Out",
+    "dashboard": "Dashboard",
+    "income":"income",
+    "expense":"Expense",
+    "category":"Category",
+    "detail":"Detail",
+    "settings": "Settings"
   },
 
   "$": {

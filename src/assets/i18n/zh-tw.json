@@ -1,6 +1,14 @@
 {
   "nav": {
-    "login": "登入"
+    "login": "登入",
+    "signOut": "登出",
+    "dashboard": "儀表板",
+    "income":"收入",
+    "expense":"支出",
+    "category":"分類",
+    "detail":"明細",
+    "settings": "設定"
+    
   },
   "$": {
     "email": "電子信箱",

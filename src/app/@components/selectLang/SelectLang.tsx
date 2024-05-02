@@ -15,7 +15,7 @@ const SelectLang = () => {
         onClick={() => setIsOpen(!isOpen)}>
         <Globe size={32} color='white' />
         {isOpen && (
-          <div className='absolute top-full mt-1 flex flex-col divide-y-2 whitespace-nowrap rounded bg-white p-1'>
+          <div className='absolute top-full mt-1 flex flex-col divide-y-2 whitespace-nowrap rounded bg-white p-2'>
             <button className='p-1' onClick={() => i18n.changeLanguage('zhTw')}>
               繁體中文
             </button>
