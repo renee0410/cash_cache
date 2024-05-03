@@ -9,11 +9,14 @@ const LoginPage = () => {
 
   return (
     <>
-      <div className='bg-primary z-10 flex size-64 h-screen w-full items-center justify-center p-6'>
+      <div className='bg-primary z-10 flex size-64 h-screen w-full flex-col p-6'>
         {/* 語系切換 */}
-        <SelectLang />
+        <div className='mr-6 self-end'>
+          <SelectLang color='white' />
+        </div>
+
         {/* 登入區塊 */}
-        <div className='min-w-80 rounded bg-white p-6 shadow-lg'>
+        <div className='m-auto min-w-80 rounded bg-white p-6 shadow-lg'>
           <span className='mb-5 block text-center text-2xl'>{t('nav.login')}</span>
           <form action=''>
             <div className='space-y-3'>
