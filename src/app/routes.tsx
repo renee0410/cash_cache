@@ -1,6 +1,6 @@
 import React from 'react';
 import { LayoutPage } from '@/app/@layout/index';
-import { LoginPage, DashboardPage } from '@/app/@pages/index';
+import { LoginPage, DashboardPage, ExpenseCategoryPage, ExpenseDetailPage } from '@/app/@pages/index';
 
 const routes = [
   {
@@ -19,9 +19,11 @@ const routes = [
         children: [
           {
             path: 'detail',
+            element: <ExpenseDetailPage />,
           },
           {
             path: 'category',
+            element: <ExpenseCategoryPage />,
           },
         ],
       },

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import cx from 'classnames';
-import { Checkerboard, List, SignOut } from '@phosphor-icons/react';
+import { Checkerboard, List, SignOut, CurrencyCircleDollar, CaretDown } from '@phosphor-icons/react';
 import { useTranslation } from 'react-i18next';
 
 import { SelectLang } from '@/app/@components/index';
@@ -9,9 +9,47 @@ import { SelectLang } from '@/app/@components/index';
 const LayoutPage = () => {
   // 是否顯示 Sidebar
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  // 是否顯示子菜單
+  const [isSubMenuVisible, setIsSubMenuVisible] = useState(false);
+  // 目前路由
+  const [currentPath, setCurrentPath] = useState('');
 
   // i18n
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const menuLists = [
+    {
+      key: 'dashboard',
+      title: t('nav.dashboard'),
+      icon: Checkerboard,
+      path: '/',
+    },
+    {
+      key: 'expense',
+      title: t('nav.expense'),
+      icon: CurrencyCircleDollar,
+      path: '/expense',
+      children: [
+        {
+          key: 'expenseCategory',
+          title: t('nav.category'),
+          path: '/expense/category',
+        },
+        {
+          key: 'expenseDetail',
+          title: t('nav.detail'),
+          path: '/expense/detail',
+        },
+      ],
+    },
+  ];
+
+  useEffect(() => {
+    const path = location.pathname;
+    setCurrentPath(path);
+  }, [location]);
 
   return (
     <>
@@ -31,14 +69,60 @@ const LayoutPage = () => {
         </div>
         <nav className='flex w-full flex-col flex-wrap p-6'>
           <ul className='space-y-1.5'>
-            <li>
-              <a
-                className='flex items-center gap-x-3.5 rounded-lg bg-gray-100 px-2.5 py-2 text-sm text-gray-700 hover:bg-gray-100'
-                href='#'>
-                <Checkerboard size={24} />
-                <span>{t('nav.dashboard')}</span>
-              </a>
-            </li>
+            {menuLists.map((menu) => {
+              const Icon = menu.icon;
+              return (
+                <li key={menu.key}>
+                  <div
+                    className={cx('flex cursor-pointer items-center gap-x-3.5 rounded-lg px-2.5 py-2 text-sm text-gray-700', {
+                      'bg-secondary text-primary': currentPath === menu.path,
+                    })}
+                    onClick={() => {
+                      if (!menu.children) {
+                        navigate(menu.path);
+                      } else {
+                        setIsSubMenuVisible(!isSubMenuVisible);
+                      }
+                    }}>
+                    <Icon size={24} />
+                    <span>{menu.title}</span>
+                    {menu.children && (
+                      <div className={cx('ms-auto', { 'rotate-180 transform': isSubMenuVisible })}>
+                        <CaretDown size={16} />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* 子層 */}
+                  {menu.children && (
+                    <div
+                      className={cx('w-full overflow-hidden', {
+                        'hidden': !isSubMenuVisible,
+                        'block': isSubMenuVisible,
+                      })}>
+                      <ul>
+                        {menu.children.map((child) => {
+                          console.log(child);
+                          return (
+                            <li
+                              key={child.key}
+                              className={cx(
+                                'ml-2 flex cursor-pointer items-center gap-x-3 rounded-lg p-2.5 text-sm before:block before:size-1 before:rounded-full before:bg-gray-700',
+                                {
+                                  'text-primary bg-secondary before:bg-primary': currentPath === child.path,
+                                },
+                              )}
+                              onClick={() => navigate(child.path)}>
+                              {child.title}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </nav>
         {/* 下方功能區塊 */}

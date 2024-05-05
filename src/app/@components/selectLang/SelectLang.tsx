@@ -35,8 +35,6 @@ const SelectLang: React.FC<SelectLangProps> = ({ color = 'black' }) => {
   useEffect(() => {
     if (ref.current) {
       const buttonRect = ref.current.getBoundingClientRect();
-      console.log(buttonRect);
-      console.log(window.innerHeight - buttonRect.bottom);
 
       if (window.innerHeight - buttonRect.bottom < 0) setIsBottom(true);
     }
@@ -47,7 +45,6 @@ const SelectLang: React.FC<SelectLangProps> = ({ color = 'black' }) => {
 
     if (savedLang) {
       const lang = { selectedLang: savedLang };
-      console.log('1');
 
       i18n.changeLanguage(lang.selectedLang);
     }
