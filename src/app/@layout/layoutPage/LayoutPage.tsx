@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import cx from 'classnames';
-import { Checkerboard, List, SignOut, CurrencyCircleDollar, CaretDown } from '@phosphor-icons/react';
+import { Checkerboard, List, SignOut, CurrencyCircleDollar, CaretDown, Gear } from '@phosphor-icons/react';
 import { useTranslation } from 'react-i18next';
 
 import { SelectLang } from '@/app/@components/index';
@@ -33,22 +33,29 @@ const LayoutPage = () => {
       path: '/expense',
       children: [
         {
-          key: 'expenseCategory',
-          title: t('nav.category'),
-          path: '/expense/category',
-        },
-        {
           key: 'expenseDetail',
           title: t('nav.detail'),
           path: '/expense/detail',
         },
+        {
+          key: 'expenseCategory',
+          title: t('nav.category'),
+          path: '/expense/category',
+        },
       ],
+    },
+    {
+      key: 'settings',
+      title: t('nav.settings'),
+      icon: Gear,
+      path: '/settings',
     },
   ];
 
   useEffect(() => {
     const path = location.pathname;
     setCurrentPath(path);
+    console.log(path.split('/').slice(1));
   }, [location]);
 
   return (
@@ -56,7 +63,7 @@ const LayoutPage = () => {
       {/* Sidebar */}
       <div
         className={cx(
-          'z-60 fixed inset-y-0 start-0 w-64 -translate-x-full overflow-y-auto border-e border-gray-200 bg-white pt-7 transition-all duration-300 lg:bottom-0 lg:end-auto lg:block lg:translate-x-0 lg:pb-10 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar]:w-2',
+          'z-60 fixed inset-y-0 start-0 w-64 -translate-x-full overflow-y-auto border-e border-gray-200 bg-slate-50 pt-7 transition-all duration-300 lg:bottom-0 lg:end-auto lg:block lg:translate-x-0 lg:pb-10 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar]:w-2',
           {
             'hidden': !isSidebarVisible,
             'block translate-x-0': isSidebarVisible,
@@ -102,7 +109,7 @@ const LayoutPage = () => {
                       })}>
                       <ul>
                         {menu.children.map((child) => {
-                          console.log(child);
+                          // console.log(child);
                           return (
                             <li
                               key={child.key}
@@ -136,9 +143,35 @@ const LayoutPage = () => {
 
       <div className='lg:ml-255 flex h-screen'>
         {/* Header */}
-        <header className='lg:w-header z-1 fixed top-0 ml-0 flex h-[66px] w-full items-center justify-between border border-gray-200 p-4 px-6'>
+        <header className='lg:w-header z-1 fixed top-0 ml-0 flex h-[66px] w-full items-center justify-between border border-gray-200 bg-slate-50 p-4 px-6'>
           {/* BreadCrumbs */}
-          <div>Dashboard</div>
+          <div className=''>
+            {currentPath
+              .split('/')
+              .slice(1)
+              .map((path, index) => {
+                console.log(path, index);
+                return (
+                  <span key={index}>
+                    {path === '' ? (
+                      // 首頁Dashboard
+                      <span className='font-bold text-gray-700'>{t('nav.dashboard')}</span>
+                    ) : (
+                      <span
+                        className={cx('text-gray-500', {
+                          'font-bold text-gray-700': index === currentPath.split('/').slice(1).length - 1, // 最後一個
+                        })}>
+                        {t(`nav.${path}`)}
+                      </span>
+                    )}
+
+                    {index < currentPath.split('/').slice(1).length - 1 && (
+                      <span className='mx-3 inline-block text-gray-500'> / </span>
+                    )}
+                  </span>
+                );
+              })}
+          </div>
 
           {/* Hamburger */}
           <button
