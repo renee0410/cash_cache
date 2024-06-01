@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import cx from 'classnames';
-
 import { Globe } from '@phosphor-icons/react';
 
+import { cn } from '@/app/@utils/index';
 interface SelectLangProps {
   color?: string;
 }
@@ -66,7 +65,7 @@ const SelectLang: React.FC<SelectLangProps> = ({ color = 'black' }) => {
         <Globe size={24} className={color} />
         {isOpen && (
           <div
-            className={cx('absolute my-1 flex flex-col divide-y-2 whitespace-nowrap rounded bg-white p-2 shadow-lg', {
+            className={cn('absolute my-1 flex flex-col divide-y-2 whitespace-nowrap rounded bg-white p-2 shadow-lg', {
               'bottom-full': isBottom,
               'top-full': !isBottom,
             })}

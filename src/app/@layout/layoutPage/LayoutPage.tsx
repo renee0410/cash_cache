@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import cx from 'classnames';
 import { Checkerboard, List, SignOut, CurrencyCircleDollar, CaretDown, Gear } from '@phosphor-icons/react';
 import { useTranslation } from 'react-i18next';
 
 import { SelectLang } from '@/app/@components/index';
+import { cn } from '@/app/@utils/index';
 
 const LayoutPage = () => {
   // 是否顯示 Sidebar
@@ -62,8 +62,8 @@ const LayoutPage = () => {
     <>
       {/* Sidebar */}
       <div
-        className={cx(
-          'z-60 fixed inset-y-0 start-0 w-64 -translate-x-full overflow-y-auto border-e border-gray-200 bg-slate-50 pt-7 transition-all duration-300 lg:bottom-0 lg:end-auto lg:block lg:translate-x-0 lg:pb-10 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar]:w-2',
+        className={cn(
+          'z-200 fixed inset-y-0 start-0 w-64 -translate-x-full overflow-y-auto border-e border-gray-200 bg-slate-50 pt-7 transition-all duration-300 lg:bottom-0 lg:end-auto lg:block lg:translate-x-0 lg:pb-10 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar]:w-2',
           {
             'hidden': !isSidebarVisible,
             'block translate-x-0': isSidebarVisible,
@@ -81,7 +81,7 @@ const LayoutPage = () => {
               return (
                 <li key={menu.key}>
                   <div
-                    className={cx('flex cursor-pointer items-center gap-x-3.5 rounded-lg px-2.5 py-2 text-sm text-gray-700', {
+                    className={cn('flex cursor-pointer items-center gap-x-3.5 rounded-lg px-2.5 py-2 text-sm text-gray-700', {
                       'bg-secondary text-primary': currentPath === menu.path,
                     })}
                     onClick={() => {
@@ -94,7 +94,7 @@ const LayoutPage = () => {
                     <Icon size={24} />
                     <span>{menu.title}</span>
                     {menu.children && (
-                      <div className={cx('ms-auto', { 'rotate-180 transform': isSubMenuVisible })}>
+                      <div className={cn('ms-auto', { 'rotate-180 transform': isSubMenuVisible })}>
                         <CaretDown size={16} />
                       </div>
                     )}
@@ -103,7 +103,7 @@ const LayoutPage = () => {
                   {/* 子層 */}
                   {menu.children && (
                     <div
-                      className={cx('w-full overflow-hidden', {
+                      className={cn('w-full overflow-hidden', {
                         'hidden': !isSubMenuVisible,
                         'block': isSubMenuVisible,
                       })}>
@@ -113,7 +113,7 @@ const LayoutPage = () => {
                           return (
                             <li
                               key={child.key}
-                              className={cx(
+                              className={cn(
                                 'ml-2 flex cursor-pointer items-center gap-x-3 rounded-lg p-2.5 text-sm before:block before:size-1 before:rounded-full before:bg-gray-700',
                                 {
                                   'text-primary bg-secondary before:bg-primary': currentPath === child.path,
@@ -158,7 +158,7 @@ const LayoutPage = () => {
                       <span className='font-bold text-gray-700'>{t('nav.dashboard')}</span>
                     ) : (
                       <span
-                        className={cx('text-gray-500', {
+                        className={cn('text-gray-500', {
                           'font-bold text-gray-700': index === currentPath.split('/').slice(1).length - 1, // 最後一個
                         })}>
                         {t(`nav.${path}`)}
@@ -197,7 +197,7 @@ const LayoutPage = () => {
       {/* Mask */}
       {isSidebarVisible && (
         <div
-          className={cx('fixed inset-0 z-50 bg-gray-900 opacity-50 lg:hidden', {
+          className={cn('z-100 fixed inset-0 bg-gray-900 opacity-50 lg:hidden', {
             'block': isSidebarVisible,
             'hidden': !isSidebarVisible,
           })}
