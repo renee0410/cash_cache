@@ -5,10 +5,11 @@ interface ButtonProps {
   size: 'sm' | 'md' | 'lg';
   isFull?: boolean;
   text: string;
-  color: 'primary';
+  color: 'primary' | 'red';
+  style?: 'solid' | 'outline';
 }
 
-const Button: FC<ButtonProps> = ({ size, isFull, text, color }) => {
+const Button: FC<ButtonProps> = ({ size, isFull, text, color = 'primary', style = 'solid' }) => {
   return (
     <>
       <button
@@ -21,7 +22,12 @@ const Button: FC<ButtonProps> = ({ size, isFull, text, color }) => {
             'w-full': isFull,
           },
           {
-            'bg-primary text-white': color === 'primary',
+            'bg-primary text-white': color === 'primary' && style === 'solid',
+            'bg-red-500 text-white': color === 'red' && style === 'solid',
+          },
+          {
+            'border-primary text-primary': color === 'primary' && style === 'outline',
+            'border-red-500 text-red-500': color === 'red' && style === 'outline',
           },
         )}>
         {text}
