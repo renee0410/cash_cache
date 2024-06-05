@@ -2,7 +2,7 @@ import React from 'react';
 
 const ExpenseDetailPage = () => {
   return (
-    <div className='space-y-6'>
+    <div className='flex h-full flex-col space-y-6'>
       <h1 className='block text-center'>2024年5月</h1>
       <div className='m-auto flex h-20 w-1/2 max-w-[240px] flex-col items-center rounded-lg bg-white py-4 shadow-lg'>
         <span>本月支出</span>
@@ -10,8 +10,8 @@ const ExpenseDetailPage = () => {
       </div>
 
       {/* List */}
-      <div>
-        <ul className='max-h-[570px] w-full divide-y divide-gray-200 overflow-y-scroll'>
+      <div className='flex-1 overflow-y-scroll'>
+        <ul className='w-full divide-y divide-gray-200 '>
           <div className='z-100 sticky top-0 border-y bg-gray-200 p-4 text-center text-base font-bold'>支出明細</div>
           <li className='flex justify-between px-2 py-3 text-sm font-medium'>
             <div className='flex gap-7'>
