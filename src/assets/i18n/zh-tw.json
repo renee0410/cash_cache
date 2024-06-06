@@ -10,6 +10,13 @@
     "settings": "設定"
     
   },
+  "form":{
+    "enter": "請輸入{{label}}",
+    "required": "{{label}}為必填",
+    "pattern": "{{label}}格式不正確",
+    "minLength": "長度不得小於 {{minLength}}",
+    "maxLength": "長度不得大於 {{maxLength}}"
+  },
   "$": {
     "email": "電子信箱",
     "password": "密碼"

@@ -7,12 +7,14 @@ interface ButtonProps {
   text: string;
   color: 'primary' | 'red';
   style?: 'solid' | 'outline';
+  type?: 'submit' | 'button';
 }
 
-const Button: FC<ButtonProps> = ({ size, isFull, text, color = 'primary', style = 'solid' }) => {
+const Button: FC<ButtonProps> = ({ size, isFull, text, color = 'primary', style = 'solid', type = 'button' }) => {
   return (
     <>
       <button
+        type={type}
         className={cn(
           'inline-flex items-center justify-center rounded-lg border border-transparent text-sm font-semibold',
           {

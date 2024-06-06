@@ -9,7 +9,13 @@
     "detail":"Detail",
     "settings": "Settings"
   },
-
+  "form":{
+    "enter": "Please enter {{label}}.",
+    "required": "{{label}} is required.",
+    "pattern": "{{label}} is not in correct format.",
+    "minLength": "The length should not be less than {{minLength}}.",
+    "maxLength": "The length should not be greater than {{maxLength}}."
+  },
   "$": {
     "email": "Email",
     "password": "Password"
