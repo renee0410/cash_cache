@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { Checkerboard, List, SignOut, CurrencyCircleDollar, CaretDown, Gear } from '@phosphor-icons/react';
 import { useTranslation } from 'react-i18next';
 
 import { SelectLang } from '@/app/@components/index';
+import { Icon } from '@/app/@atoms/index';
 import { cn } from '@/app/@utils/index';
 
 const LayoutPage = () => {
@@ -23,13 +23,13 @@ const LayoutPage = () => {
     {
       key: 'dashboard',
       title: t('nav.dashboard'),
-      icon: Checkerboard,
+      icon: 'Checkerboard',
       path: '/',
     },
     {
       key: 'expense',
       title: t('nav.expense'),
-      icon: CurrencyCircleDollar,
+      icon: 'CurrencyCircleDollar',
       path: '/expense',
       children: [
         {
@@ -47,7 +47,7 @@ const LayoutPage = () => {
     {
       key: 'settings',
       title: t('nav.settings'),
-      icon: Gear,
+      icon: 'Gear',
       path: '/settings',
     },
   ];
@@ -63,7 +63,7 @@ const LayoutPage = () => {
       {/* Sidebar */}
       <div
         className={cn(
-          'z-200 fixed inset-y-0 start-0 w-64 -translate-x-full overflow-y-auto border-e border-gray-200 bg-slate-50 pt-7 transition-all duration-300 lg:bottom-0 lg:end-auto lg:block lg:translate-x-0 lg:pb-10 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar]:w-2',
+          'fixed inset-y-0 start-0 z-200 w-64 -translate-x-full overflow-y-auto border-e border-gray-200 bg-slate-50 pt-7 transition-all duration-300 lg:bottom-0 lg:end-auto lg:block lg:translate-x-0 lg:pb-10 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar]:w-2',
           {
             'hidden': !isSidebarVisible,
             'block translate-x-0': isSidebarVisible,
@@ -77,7 +77,6 @@ const LayoutPage = () => {
         <nav className='flex w-full flex-col flex-wrap p-6'>
           <ul className='space-y-1.5'>
             {menuLists.map((menu) => {
-              const Icon = menu.icon;
               return (
                 <li key={menu.key}>
                   <div
@@ -91,11 +90,11 @@ const LayoutPage = () => {
                         setIsSubMenuVisible(!isSubMenuVisible);
                       }
                     }}>
-                    <Icon size={24} />
+                    <Icon iconName={menu.icon} size={24}></Icon>
                     <span>{menu.title}</span>
                     {menu.children && (
                       <div className={cn('ms-auto', { 'rotate-180 transform': isSubMenuVisible })}>
-                        <CaretDown size={16} />
+                        <Icon iconName='CaretDown' size={16}></Icon>
                       </div>
                     )}
                   </div>
@@ -116,7 +115,7 @@ const LayoutPage = () => {
                               className={cn(
                                 'ml-2 flex cursor-pointer items-center gap-x-3 rounded-lg p-2.5 text-sm before:block before:size-1 before:rounded-full before:bg-gray-700',
                                 {
-                                  'text-primary bg-secondary before:bg-primary': currentPath === child.path,
+                                  'bg-secondary text-primary before:bg-primary': currentPath === child.path,
                                 },
                               )}
                               onClick={() => navigate(child.path)}>
@@ -136,14 +135,14 @@ const LayoutPage = () => {
         <div className='fixed bottom-0 w-full border-t p-4 lg:hidden'>
           <div className='flex justify-center gap-5'>
             <SelectLang />
-            <SignOut size={24} className='cursor-pointer' />
+            <Icon iconName='SignOut' size={24} className='cursor-pointer' />
           </div>
         </div>
       </div>
 
-      <div className='lg:ml-255 flex h-screen'>
+      <div className='flex h-screen lg:ml-255'>
         {/* Header */}
-        <header className='lg:w-header z-1 fixed top-0 ml-0 flex h-[66px] w-full items-center justify-between border border-gray-200 bg-slate-50 p-4 px-6'>
+        <header className='fixed top-0 z-1 ml-0 flex h-[66px] w-full items-center justify-between border border-gray-200 bg-slate-50 p-4 px-6 lg:w-header'>
           {/* BreadCrumbs */}
           <div className=''>
             {currentPath
@@ -178,13 +177,13 @@ const LayoutPage = () => {
             type='button'
             className='h-full rounded-lg border border-gray-200 p-1 text-gray-500 hover:text-gray-600 lg:hidden'
             onClick={() => setIsSidebarVisible(true)}>
-            <List size={24} />
+            <Icon iconName='List' size={24} />
           </button>
 
           {/* 語系切換、登出*/}
           <div className='hidden lg:flex lg:gap-5'>
             <SelectLang />
-            <SignOut size={24} className='cursor-pointer' />
+            <Icon iconName='SignOut' size={24} className='cursor-pointer' />
           </div>
         </header>
 
@@ -197,7 +196,7 @@ const LayoutPage = () => {
       {/* Mask */}
       {isSidebarVisible && (
         <div
-          className={cn('z-100 fixed inset-0 bg-gray-900 opacity-50 lg:hidden', {
+          className={cn('fixed inset-0 z-100 bg-gray-900 opacity-50 lg:hidden', {
             'block': isSidebarVisible,
             'hidden': !isSidebarVisible,
           })}

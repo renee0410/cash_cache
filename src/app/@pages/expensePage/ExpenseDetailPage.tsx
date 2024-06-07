@@ -1,18 +1,24 @@
 import React from 'react';
 
+import { Button } from '@/app/@atoms/index';
+
 const ExpenseDetailPage = () => {
   return (
     <div className='flex h-full flex-col space-y-6'>
       <h1 className='block text-center'>2024年5月</h1>
+
       <div className='m-auto flex h-20 w-1/2 max-w-[240px] flex-col items-center rounded-lg bg-white py-4 shadow-lg'>
         <span>本月支出</span>
         <span className='text-xl font-bold'>$ 1,232</span>
+      </div>
+      <div className='lg:ml-auto lg:w-28'>
+        <Button size='md' color='primary' style='solid' type='button' text='記一筆' iconName='Calculator' isFull></Button>
       </div>
 
       {/* List */}
       <div className='flex-1 overflow-y-scroll'>
         <ul className='w-full divide-y divide-gray-200 '>
-          <div className='z-100 sticky top-0 border-y bg-gray-200 p-4 text-center text-base font-bold'>支出明細</div>
+          <div className='sticky top-0 z-100 border-y bg-gray-200 p-4 text-center text-base font-bold'>支出明細</div>
           <li className='flex justify-between px-2 py-3 text-sm font-medium'>
             <div className='flex gap-7'>
               {/* 日期 */}

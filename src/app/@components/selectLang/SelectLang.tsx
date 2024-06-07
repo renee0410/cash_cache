@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Globe } from '@phosphor-icons/react';
 
 import { cn } from '@/app/@utils/index';
+import { Icon } from '@/app/@atoms/index';
 interface SelectLangProps {
   color?: string;
 }
@@ -52,7 +52,7 @@ const SelectLang: React.FC<SelectLangProps> = ({ color = 'black' }) => {
   if (color) {
     switch (color) {
       case 'white':
-        color = 'white';
+        color = 'text-white';
         break;
       default:
         color = 'text-gray-700';
@@ -62,7 +62,7 @@ const SelectLang: React.FC<SelectLangProps> = ({ color = 'black' }) => {
   return (
     <>
       <button type='button' className='flex flex-col items-center' onClick={() => setIsOpen(!isOpen)}>
-        <Globe size={24} className={color} />
+        <Icon iconName='Globe' size={24} className={color} />
         {isOpen && (
           <div
             className={cn('absolute my-1 flex flex-col divide-y-2 whitespace-nowrap rounded bg-white p-2 shadow-lg', {
