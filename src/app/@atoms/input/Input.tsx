@@ -7,7 +7,7 @@ import { cn } from '@/app/@utils/index';
 interface InputProps {
   label: string;
   name: string;
-  type: 'email' | 'password';
+  type: 'email' | 'password' | 'text';
   required?: boolean;
   pattern?: RegExp;
   minLength?: number;
@@ -30,7 +30,7 @@ const Input: FC<InputProps> = ({ label, name, type, required, pattern, minLength
           type={type}
           placeholder={t('form.enter', { label })}
           className={cn('rounded border border-gray-200 px-3 py-2 placeholder:text-sm', {
-            'border-red-700': !!errors[name]?.message,
+            'border-red-700 focus:outline-none focus:ring-1 focus:ring-red-700': !!errors[name]?.message,
           })}
           id={name}
           {...register(name, {
