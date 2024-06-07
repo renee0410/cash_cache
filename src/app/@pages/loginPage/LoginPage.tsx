@@ -1,15 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useForm, FormProvider } from 'react-hook-form';
+import { useForm, FormProvider, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 import { SelectLang } from '@/app/@components/index';
 import { Input, Button } from '@/app/@atoms/index';
 
-type LoginData = {
-  email: string;
-  password: string;
-};
+interface LoginData {
+  email: string | null;
+  password: string | null;
+}
 
 const LoginPage = () => {
   // i18n
@@ -23,7 +23,7 @@ const LoginPage = () => {
     },
   });
 
-  const onSubmit = (data: LoginData) => {
+  const onSubmit: SubmitHandler<LoginData> = (data) => {
     if (data) {
       navigate('/');
     }
