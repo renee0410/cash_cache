@@ -55,7 +55,6 @@ const LayoutPage = () => {
   useEffect(() => {
     const path = location.pathname;
     setCurrentPath(path);
-    console.log(path.split('/').slice(1));
   }, [location]);
 
   return (
@@ -108,7 +107,6 @@ const LayoutPage = () => {
                       })}>
                       <ul>
                         {menu.children.map((child) => {
-                          // console.log(child);
                           return (
                             <li
                               key={child.key}
@@ -149,7 +147,6 @@ const LayoutPage = () => {
               .split('/')
               .slice(1)
               .map((path, index) => {
-                console.log(path, index);
                 return (
                   <span key={index}>
                     {path === '' ? (

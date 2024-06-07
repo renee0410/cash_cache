@@ -14,23 +14,14 @@ interface ButtonProps {
   className?: string;
 }
 
-const Button: FC<ButtonProps> = ({
-  size,
-  isFull,
-  text,
-  color = 'primary',
-  style = 'solid',
-  type = 'button',
-  iconName,
-  className,
-}) => {
+const Button: FC<ButtonProps> = ({ size, isFull, text, color = 'primary', style = 'solid', type = 'button', iconName }) => {
   return (
     <>
       <button
         type={type}
         className={cn(
           'inline-flex items-center justify-center gap-2 rounded-lg border border-transparent text-sm font-semibold',
-          { className },
+
           {
             'px-3 py-2': size === 'sm',
             'px-4 py-3': size === 'md',
