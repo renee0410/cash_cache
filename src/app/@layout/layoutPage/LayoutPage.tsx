@@ -3,7 +3,7 @@ import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { SelectLang } from '@/app/@components/index';
-import { Icon } from '@/app/@atoms/index';
+import { SvgIcon } from '@/app/@atoms/index';
 import { cn } from '@/app/@utils/index';
 
 const LayoutPage = () => {
@@ -89,11 +89,11 @@ const LayoutPage = () => {
                         setIsSubMenuVisible(!isSubMenuVisible);
                       }
                     }}>
-                    <Icon iconName={menu.icon} size={24}></Icon>
+                    <SvgIcon iconName={menu.icon} size={24}></SvgIcon>
                     <span>{menu.title}</span>
                     {menu.children && (
                       <div className={cn('ms-auto', { 'rotate-180 transform': isSubMenuVisible })}>
-                        <Icon iconName='CaretDown' size={16}></Icon>
+                        <SvgIcon iconName='CaretDown' size={16}></SvgIcon>
                       </div>
                     )}
                   </div>
@@ -133,7 +133,7 @@ const LayoutPage = () => {
         <div className='fixed bottom-0 w-full border-t p-4 lg:hidden'>
           <div className='flex justify-center gap-5'>
             <SelectLang />
-            <Icon iconName='SignOut' size={24} className='cursor-pointer' />
+            <SvgIcon iconName='SignOut' size={24} className='cursor-pointer' />
           </div>
         </div>
       </div>
@@ -174,13 +174,13 @@ const LayoutPage = () => {
             type='button'
             className='h-full rounded-lg border border-gray-200 p-1 text-gray-500 hover:text-gray-600 lg:hidden'
             onClick={() => setIsSidebarVisible(true)}>
-            <Icon iconName='List' size={24} />
+            <SvgIcon iconName='List' size={24} />
           </button>
 
           {/* 語系切換、登出*/}
           <div className='hidden lg:flex lg:gap-5'>
             <SelectLang />
-            <Icon iconName='SignOut' size={24} className='cursor-pointer' />
+            <SvgIcon iconName='SignOut' size={24} className='cursor-pointer' />
           </div>
         </header>
 

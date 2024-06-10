@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { cn } from '@/app/@utils/index';
-import { Icon } from '@/app/@atoms/index';
+import { SvgIcon } from '@/app/@atoms/index';
 interface SelectLangProps {
   color?: string;
 }
@@ -62,7 +62,7 @@ const SelectLang: React.FC<SelectLangProps> = ({ color = 'black' }) => {
   return (
     <>
       <button type='button' className='flex flex-col items-center' onClick={() => setIsOpen(!isOpen)}>
-        <Icon iconName='Globe' size={24} className={color} />
+        <SvgIcon iconName='Globe' size={24} className={color} />
         {isOpen && (
           <div
             className={cn('absolute my-1 flex flex-col divide-y-2 whitespace-nowrap rounded bg-white p-2 shadow-lg', {

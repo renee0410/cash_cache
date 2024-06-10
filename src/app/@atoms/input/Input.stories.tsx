@@ -19,7 +19,6 @@ export const Primary: Story = {
     label: 'Input',
     name: 'name',
     type: 'text',
-    placeholder: 'Placeholder',
   },
 
   decorators: [
@@ -53,7 +52,7 @@ export const Error: Story = {
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             <Story />
             <div className='mt-4'>
-              <Button text='Submit' type='submit' size='sm' />
+              <Button text='Submit' type='submit' size='sm' color='primary' />
             </div>
           </form>
         </FormProvider>

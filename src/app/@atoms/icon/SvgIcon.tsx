@@ -1,5 +1,15 @@
 import React, { FC } from 'react';
-import { Calculator, Checkerboard, CurrencyCircleDollar, Gear, CaretDown, SignOut, List, Globe } from '@phosphor-icons/react';
+import {
+  Calculator,
+  Checkerboard,
+  CurrencyCircleDollar,
+  Gear,
+  CaretDown,
+  SignOut,
+  List,
+  Globe,
+  Icon,
+} from '@phosphor-icons/react';
 
 interface IconProps {
   iconName: string;
@@ -7,7 +17,11 @@ interface IconProps {
   className?: string;
 }
 
-const Icons = {
+type IconsType = {
+  [key: string]: Icon;
+};
+
+const Icons: IconsType = {
   Calculator: Calculator, // 計算機
   Checkerboard: Checkerboard, // dashboard
   CurrencyCircleDollar: CurrencyCircleDollar, // 貨幣
@@ -18,9 +32,9 @@ const Icons = {
   Globe: Globe, // 地球
 };
 
-const Icon: FC<IconProps> = ({ iconName, size = 16, className = '' }) => {
+const SvgIcon: FC<IconProps> = ({ iconName, size = 16, className = '' }) => {
   const IconComponent = Icons[iconName];
   return IconComponent && <IconComponent size={size} className={className} />;
 };
 
-export default Icon;
+export default SvgIcon;

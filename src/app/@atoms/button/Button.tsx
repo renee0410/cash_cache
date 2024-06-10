@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 import { cn } from '@/app/@utils/index';
-import { Icon } from '@/app/@atoms/index';
+import { SvgIcon } from '@/app/@atoms/index';
 
 interface ButtonProps {
   size: 'sm' | 'md' | 'lg';
@@ -37,7 +37,7 @@ const Button: FC<ButtonProps> = ({ size, isFull, text, color = 'primary', style 
             'border-red-500 text-red-500': color === 'red' && style === 'outline',
           },
         )}>
-        {iconName && <Icon iconName={iconName} size={24}></Icon>}
+        {iconName && <SvgIcon iconName={iconName} size={24}></SvgIcon>}
         {text}
       </button>
     </>
