@@ -3,7 +3,7 @@
     "login": "Login",
     "signOut": "Sign Out",
     "dashboard": "Dashboard",
-    "income":"income",
+    "income":"Income",
     "expense":"Expense",
     "category":"Category",
     "detail":"Detail",
@@ -18,6 +18,8 @@
   },
   "$": {
     "email": "Email",
-    "password": "Password"
+    "password": "Password",
+    "income":"Income",
+    "expense":"Expense"
   }
 }

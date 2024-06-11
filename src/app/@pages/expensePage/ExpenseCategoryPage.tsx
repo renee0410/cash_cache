@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ForkKnife } from '@phosphor-icons/react';
+import { SvgIcon } from '@/app/@atoms/index';
 
 const ExpenseCategoryPage = () => {
   return (
@@ -16,7 +16,7 @@ const ExpenseCategoryPage = () => {
             <div className='flex items-center p-3'>
               <div className='flex w-full'>
                 <div className='flex size-12 items-center justify-center rounded-full bg-yellow-300 p-1'>
-                  <ForkKnife size={32} color='white' />
+                  <SvgIcon iconName='ForkKnife' size={24} className='text-white' />
                 </div>
                 <div className='ml-4 flex-1 space-y-3'>
                   <div className='space-y-2'>

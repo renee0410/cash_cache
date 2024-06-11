@@ -14,7 +14,6 @@ const LayoutPage = () => {
   // 目前路由
   const [currentPath, setCurrentPath] = useState('');
 
-  // i18n
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
@@ -62,7 +61,7 @@ const LayoutPage = () => {
       {/* Sidebar */}
       <div
         className={cn(
-          'fixed inset-y-0 start-0 z-200 w-64 -translate-x-full overflow-y-auto border-e border-gray-200 bg-slate-50 pt-7 transition-all duration-300 lg:bottom-0 lg:end-auto lg:block lg:translate-x-0 lg:pb-10 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar]:w-2',
+          'z-500 fixed inset-y-0 start-0 w-64 -translate-x-full overflow-y-auto border-e border-gray-200 bg-slate-50 pt-7 transition-all duration-300 lg:bottom-0 lg:end-auto lg:block lg:translate-x-0 lg:pb-10 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar]:w-2',
           {
             'hidden': !isSidebarVisible,
             'block translate-x-0': isSidebarVisible,
@@ -140,7 +139,7 @@ const LayoutPage = () => {
 
       <div className='flex h-screen lg:ml-255'>
         {/* Header */}
-        <header className='fixed top-0 z-1 ml-0 flex h-[66px] w-full items-center justify-between border border-gray-200 bg-slate-50 p-4 px-6 lg:w-header'>
+        <header className='z-400 fixed top-0 ml-0 flex h-[66px] w-full items-center justify-between border border-gray-200 bg-slate-50 p-4 px-6 lg:w-header'>
           {/* BreadCrumbs */}
           <div className=''>
             {currentPath
@@ -193,7 +192,7 @@ const LayoutPage = () => {
       {/* Mask */}
       {isSidebarVisible && (
         <div
-          className={cn('fixed inset-0 z-100 bg-gray-900 opacity-50 lg:hidden', {
+          className={cn('z-400 fixed inset-0 bg-gray-900 opacity-50 lg:hidden', {
             'block': isSidebarVisible,
             'hidden': !isSidebarVisible,
           })}

@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import {
+  Icon,
   Calculator,
   Checkerboard,
   CurrencyCircleDollar,
@@ -8,7 +9,7 @@ import {
   SignOut,
   List,
   Globe,
-  Icon,
+  ForkKnife,
 } from '@phosphor-icons/react';
 
 interface IconProps {
@@ -30,6 +31,7 @@ const Icons: IconsType = {
   SignOut: SignOut, // 登出
   List: List, // 漢堡選單
   Globe: Globe, // 地球
+  ForkKnife: ForkKnife, // 飲食
 };
 
 const SvgIcon: FC<IconProps> = ({ iconName, size = 16, className = '' }) => {

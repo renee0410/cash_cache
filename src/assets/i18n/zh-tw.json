@@ -19,6 +19,8 @@
   },
   "$": {
     "email": "電子信箱",
-    "password": "密碼"
+    "password": "密碼",
+    "income":"收入",
+    "expense":"支出"
   }
 }
