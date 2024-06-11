@@ -11,7 +11,6 @@ interface ButtonProps {
   style?: 'solid' | 'outline';
   type?: 'submit' | 'button';
   iconName?: string;
-  className?: string;
 }
 
 const Button: FC<ButtonProps> = ({ size, isFull, text, color = 'primary', style = 'solid', type = 'button', iconName }) => {
