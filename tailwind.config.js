@@ -19,11 +19,13 @@ export default {
         300: '300',
         400: '400',
         500: '500',
+        600: '600',
         1000: '1000',
       },
       colors: {
         primary: "#518099",
         secondary: "#E3F5FF",
+        mask: "#111827"
       },
       width: {
         header:' calc(100% - 255px)',

@@ -19,6 +19,18 @@ import {
   Backspace,
   Dot,
   DotOutline,
+  ShoppingCartSimple,
+  TShirt,
+  Car,
+  Stethoscope,
+  GameController,
+  HairDryer,
+  Gift,
+  Island,
+  HouseLine,
+  CreditCard,
+  HandHeart,
+  DotsThreeOutline,
 } from '@phosphor-icons/react';
 
 interface IconProps {
@@ -51,6 +63,18 @@ const Icons: IconsType = {
   Backspace: Backspace, // 刪除
   Dot: Dot, // 點
   DotOutline: DotOutline, // 點
+  ShoppingCartSimple: ShoppingCartSimple, // 購物車
+  TShirt: TShirt, // 衣服
+  Car: Car, // 車
+  Stethoscope: Stethoscope, // 醫療
+  GameController: GameController, // 休閒娛樂
+  HairDryer: HairDryer, // 美容
+  Gift: Gift, // 禮物
+  Island: Island, // 旅遊
+  HouseLine: HouseLine, // 住家
+  CreditCard: CreditCard, // 分期
+  HandHeart: HandHeart, // 保險
+  DotsThreeOutline: DotsThreeOutline, // 三個點
 };
 
 const SvgIcon: FC<IconProps> = ({ iconName, size = 16, className = '', weight = 'regular' }) => {

@@ -20,6 +20,20 @@
     "email": "Email",
     "password": "Password",
     "income":"Income",
-    "expense":"Expense"
+    "expense":"Expense",
+    "select_category": "Select Category",
+    "food":"Food",
+    "clothes": "Clothes",
+    "transport":"Transport",
+    "medical": "Medical",
+    "entertainment":"Entertainment",
+    "shopping":"Shopping",
+    "home": "Home",
+    "installment": "Installment",
+    "insurance": "Insurance",
+    "gift": "Gift",
+    "beauty": "Beauty",
+    "travel": "Travel",
+    "others":"Others"
   }
 }

@@ -21,6 +21,20 @@
     "email": "電子信箱",
     "password": "密碼",
     "income":"收入",
-    "expense":"支出"
+    "expense":"支出",
+    "select_category": "選擇分類",
+    "food":"食物",
+    "clothes": "衣服",
+    "transport":"交通",
+    "medical": "醫療",
+    "entertainment":"娛樂",
+    "shopping":"購物",
+    "home": "住家",
+    "installment": "分期付款",
+    "insurance": "保險",
+    "gift": "禮物",
+    "beauty": "美容",
+    "travel": "旅遊",
+    "others":"其他"
   }
 }

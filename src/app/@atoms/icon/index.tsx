@@ -1,3 +1,4 @@
 import SvgIcon from './SvgIcon';
+import CategoryIcon from './CategoryIcon';
 
-export { SvgIcon };
+export { SvgIcon, CategoryIcon };
