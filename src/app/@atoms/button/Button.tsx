@@ -11,9 +11,19 @@ interface ButtonProps {
   style?: 'solid' | 'outline';
   type?: 'submit' | 'button';
   iconName?: string;
+  onClick?: () => void;
 }
 
-const Button: FC<ButtonProps> = ({ size, isFull, text, color = 'primary', style = 'solid', type = 'button', iconName }) => {
+const Button: FC<ButtonProps> = ({
+  size,
+  isFull,
+  text,
+  color = 'primary',
+  style = 'solid',
+  type = 'button',
+  iconName,
+  onClick,
+}) => {
   return (
     <>
       <button
@@ -35,7 +45,8 @@ const Button: FC<ButtonProps> = ({ size, isFull, text, color = 'primary', style 
             'border-primary text-primary': color === 'primary' && style === 'outline',
             'border-red-500 text-red-500': color === 'red' && style === 'outline',
           },
-        )}>
+        )}
+        onClick={onClick}>
         {iconName && <SvgIcon iconName={iconName} size={24}></SvgIcon>}
         {text}
       </button>

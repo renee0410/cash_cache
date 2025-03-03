@@ -48,12 +48,13 @@
       "version": "detect"
     }
   },
-  // "overrides": [
-  //   {
-  //     "files": ["src/**/*.test.ts", "src/**/*.test.tsx"],
-  //     "rules": {
-  //       "import/first": "off"
-  //     }
-  //   }
-  // ]
+  "overrides": [
+    {
+      "files": ["src/**/*.test.ts", "src/**/*.test.tsx", "jest.config.ts"],
+      "rules": {
+        "import/first": "off"
+      },
+      "excludedFiles": ["jest.config.ts"]
+    }
+  ]
 }
