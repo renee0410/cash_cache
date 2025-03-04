@@ -24,5 +24,4 @@ dist-ssr
 *.sw?
 
 *storybook.log
-jest-stare/jest-results.json
-jest-stare/index.html
+jest-stare/
