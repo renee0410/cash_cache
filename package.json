@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:coverage:open": "jest --coverage && open coverage/lcov-report/index.html"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.5",

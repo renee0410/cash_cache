@@ -16,7 +16,6 @@ export default {
     '!src/**/*.d.ts', // 忽略 TypeScript 定義檔
     '!src/**/node_modules/**', // 忽略 node_modules
   ],
-  coverageReporters: ['text', 'html'],
   reporters: [
     'default',
     [
