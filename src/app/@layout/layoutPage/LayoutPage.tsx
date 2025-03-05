@@ -26,9 +26,15 @@ const LayoutPage = () => {
       path: '/',
     },
     {
+      key: 'settings',
+      title: t('nav.settings'),
+      icon: 'Gear',
+      path: '/settings',
+    },
+    {
       key: 'expense',
-      title: t('nav.expense'),
-      icon: 'CurrencyCircleDollar',
+      title: '',
+      icon: '',
       path: '/expense',
       children: [
         {
@@ -43,12 +49,6 @@ const LayoutPage = () => {
         },
       ],
     },
-    {
-      key: 'settings',
-      title: t('nav.settings'),
-      icon: 'Gear',
-      path: '/settings',
-    },
   ];
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const LayoutPage = () => {
       {/* Sidebar */}
       <div
         className={cn(
-          'z-500 fixed inset-y-0 start-0 w-64 -translate-x-full overflow-y-auto border-e border-gray-200 bg-slate-50 pt-7 transition-all duration-300 lg:bottom-0 lg:end-auto lg:block lg:translate-x-0 lg:pb-10 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar]:w-2',
+          'fixed inset-y-0 start-0 z-500 w-64 -translate-x-full overflow-y-auto border-e border-gray-200 bg-slate-50 pt-7 transition-all duration-300 lg:bottom-0 lg:end-auto lg:block lg:translate-x-0 lg:pb-10 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar]:w-2',
           {
             'hidden': !isSidebarVisible,
             'block translate-x-0': isSidebarVisible,
@@ -92,7 +92,7 @@ const LayoutPage = () => {
                     <span>{menu.title}</span>
                     {menu.children && (
                       <div className={cn('ms-auto', { 'rotate-180 transform': isSubMenuVisible })}>
-                        <SvgIcon iconName='CaretDown' size={16}></SvgIcon>
+                        {/* <SvgIcon iconName='CaretDown' size={16}></SvgIcon> */}
                       </div>
                     )}
                   </div>
@@ -139,7 +139,7 @@ const LayoutPage = () => {
 
       <div className='flex h-screen lg:ml-255'>
         {/* Header */}
-        <header className='z-400 fixed top-0 ml-0 flex h-[66px] w-full items-center justify-between border border-gray-200 bg-slate-50 p-4 px-6 lg:w-header'>
+        <header className='fixed top-0 z-400 ml-0 flex h-[66px] w-full items-center justify-between border border-gray-200 bg-slate-50 p-4 px-6 lg:w-header'>
           {/* BreadCrumbs */}
           <div className=''>
             {currentPath
@@ -192,7 +192,7 @@ const LayoutPage = () => {
       {/* Mask */}
       {isSidebarVisible && (
         <div
-          className={cn('z-400 fixed inset-0 bg-gray-900 opacity-50 lg:hidden', {
+          className={cn('fixed inset-0 z-400 bg-gray-900 opacity-50 lg:hidden', {
             'block': isSidebarVisible,
             'hidden': !isSidebarVisible,
           })}

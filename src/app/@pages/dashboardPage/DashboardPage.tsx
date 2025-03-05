@@ -1,24 +1,55 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { FormProvider, useForm, SubmitHandler } from 'react-hook-form';
 
-import { Button } from '@/app/@atoms';
+import { Button, Input } from '@/app/@atoms';
+import { formatPhone } from '@/app/@utils';
 
-// 將函數邏輯提取出來方便測試
-export const incrementCount = (prevCount: number): number => {
-  return prevCount + 1;
-};
+interface LoginData {
+  phone: string | null;
+}
 
 const DashboardPage = () => {
-  const [count, setCount] = useState(0);
-  const handleClick = () => {
-    setCount(incrementCount);
+  const methods = useForm({
+    mode: 'onChange',
+    defaultValues: {
+      phone: '',
+    },
+  });
+
+  const onSubmit: SubmitHandler<LoginData> = (data) => {
+    if (!data.phone) {
+      return;
+    }
+    const formattedPhone = formatPhone(data.phone!);
+    console.log(formattedPhone);
   };
 
   return (
-    <div>
-      <h1>Dashboard Page</h1>
-      <p>按鈕點擊次數：{count}</p>
-      <Button size='sm' text='點擊' color='primary' type='submit' onClick={handleClick} />
-    </div>
+    <>
+      <FormProvider {...methods}>
+        <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <div className='space-y-3'>
+            {/* Email */}
+            <Input
+              label='手機號碼'
+              name='phone'
+              type='phone'
+              required={true}
+              validate={(value) => {
+                if (value.startsWith('0') && value.length === 10) {
+                  return true;
+                }
+                if (value.startsWith('9') && value.length === 9) {
+                  return true;
+                }
+                return '手機號碼格式不正確';
+              }}
+            />
+            <Button type='submit' size='sm' text='提交' color='primary' />
+          </div>
+        </form>
+      </FormProvider>
+    </>
   );
 };
 
